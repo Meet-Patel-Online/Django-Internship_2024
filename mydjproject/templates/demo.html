@@ -1,0 +1,28 @@
+Hello Working<br>
+{% comment %} {% for pdata in mydata%}
+ID:{{pdata.id}}<br>
+Name:{{pdata.sname}}<br>
+Email:{{pdata.semail}}<br>
+Date:{{pdata.createAt}}<br>
+{% endfor%} {% endcomment %}
+<table>
+    <tr>
+    <tr>
+    <th >ID: </th>
+    <th >Name:</th>
+    <th >Email: </th>
+    <th >Date: </th>
+    <th > </th>
+</tr>
+</tr>   
+    {% for pdata in mydata %}
+    <tr>
+    <td>{{ pdata.id }}</td>
+    <td>{{ pdata.sname }}</td>
+    {% comment %} <td>{{ pdata.smobile }}</td> {% endcomment %}
+    <td>{{ pdata.semail }}</td>
+    <td>{{ pdata.createAt }}</td>
+    <td><a onclick="return confirm('are you sure?')" href="{% url 'delete-student' pdata.id%}">Delete</td>
+    </tr>
+    {% endfor %}
+    </table>
